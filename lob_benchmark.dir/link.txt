@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -march=native -DNDEBUG -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/lob_benchmark.dir/engine/benchmark.cpp.o CMakeFiles/lob_benchmark.dir/engine/lob.cpp.o -o lob_benchmark

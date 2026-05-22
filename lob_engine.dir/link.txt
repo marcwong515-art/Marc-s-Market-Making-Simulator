@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -march=native -DNDEBUG -arch arm64 -bundle -Wl,-headerpad_max_install_names -Xlinker -undefined -Xlinker dynamic_lookup -o lob_engine.cpython-39-darwin.so CMakeFiles/lob_engine.dir/engine/lob.cpp.o CMakeFiles/lob_engine.dir/engine/bindings.cpp.o
