@@ -24,7 +24,7 @@ Optimal half-spread:
     δ* = (γ · σ² · (T - t)) / 2  +  (1/γ) · ln(1 + γ/k)
 
 where k is the order-book depth parameter (controls how quickly demand falls
-off with distance from mid; higher k → less elastic — maker quotes wider).
+off with distance from mid; higher k → less elastic  -  maker quotes wider).
 
 The maker quotes:
     bid = r - δ*

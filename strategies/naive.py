@@ -8,7 +8,7 @@ On each book update:
   - Cancel all outstanding quotes.
   - If a valid mid exists, post bid at (mid - k) and ask at (mid + k).
 
-This is intentionally the simplest possible market-making strategy — a baseline
+This is intentionally the simplest possible market-making strategy  -  a baseline
 to compare the more sophisticated approaches against.
 """
 

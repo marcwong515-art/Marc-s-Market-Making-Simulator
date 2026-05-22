@@ -113,7 +113,7 @@ TEST(LOB, PriceTimePriority) {
     book.submit(make_limit(1, Side::Buy, 100, 5));
     book.submit(make_limit(2, Side::Buy, 100, 5));
 
-    // Sell 5 — should match order 1 first.
+    // Sell 5  -  should match order 1 first.
     book.submit(make_limit(3, Side::Sell, 100, 5));
 
     ASSERT_EQ(cap.trades.size(), 1u);
@@ -153,7 +153,7 @@ TEST(LOB, IOCUnmatched) {
     Capture cap;
     LimitOrderBook book(cap.make());
 
-    // No asks exist — IOC buy should be entirely discarded.
+    // No asks exist  -  IOC buy should be entirely discarded.
     auto ioc = make_limit(1, Side::Buy, 100, 10, TIF::IOC);
     book.submit(ioc);
 
@@ -241,7 +241,7 @@ TEST(LOB, ModifyPriceChange) {
     book.submit(make_limit(1, Side::Buy, 100, 10));
     book.submit(make_limit(2, Side::Buy, 100, 5));
 
-    // Move order 1 to price 101 — it should lose time priority vs order 2.
+    // Move order 1 to price 101  -  it should lose time priority vs order 2.
     Order mod;
     mod.id        = 1;
     mod.type      = OrderType::Modify;

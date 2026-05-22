@@ -1,5 +1,5 @@
 """
-Engine package — imports the C++ lob_engine extension.
+Engine package  -  imports the C++ lob_engine extension.
 
 The .so is placed in build/ by CMake. We add that directory to sys.path
 so `import lob_engine` works from anywhere in the project.

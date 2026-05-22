@@ -7,7 +7,7 @@ namespace py = pybind11;
 using namespace lob;
 
 PYBIND11_MODULE(lob_engine, m) {
-    m.doc() = "Limit Order Book matching engine — C++ core via pybind11";
+    m.doc() = "Limit Order Book matching engine  -  C++ core via pybind11";
 
     // ── Enums ─────────────────────────────────────────────────────────────────
     py::enum_<Side>(m, "Side")

@@ -87,7 +87,7 @@ where $k$ is the order-book depth parameter (controls how quickly the probabilit
 
 $$\text{bid} = r - \delta^*, \qquad \text{ask} = r + \delta^*$$
 
-**Key behaviour:** spread narrows as $\tau \to 0$ (end of session), and quotes shift aggressively to flatten inventory — both effects emerge naturally from the optimisation, not from hard-coded rules.
+**Key behaviour:** spread narrows as $\tau \to 0$ (end of session), and quotes shift aggressively to flatten inventory  -  both effects emerge naturally from the optimisation, not from hard-coded rules.
 
 ---
 
@@ -95,7 +95,7 @@ $$\text{bid} = r - \delta^*, \qquad \text{ask} = r + \delta^*$$
 
 ### 1. Naive Symmetric Quoter (`strategies/naive.py`)
 
-Quotes ±$k$ ticks around mid with fixed size. Suppresses one side when inventory hits a hard limit. Baseline only — no model.
+Quotes ±$k$ ticks around mid with fixed size. Suppresses one side when inventory hits a hard limit. Baseline only  -  no model.
 
 ### 2. Avellaneda-Stoikov (`strategies/avellaneda_stoikov.py`)
 
@@ -128,7 +128,7 @@ Quotes are also skewed by $\theta \cdot \text{OFI} \cdot \text{base\_spread}$ in
 | Avellaneda-Stoikov | −1900.48 | −14.63 | 3699.75 | 17,123 | 0.1527 |
 | Glosten-Milgrom | −1199.46 | −12.10 | 9013.05 | 5,984 | 0.0434 |
 
-**Interpretation:** All three strategies lose money against adversarially random synthetic flow — this is expected and educational. Adverse selection dominates: each fill is immediately followed by a random price walk that on average moves against inventory. Key observations:
+**Interpretation:** All three strategies lose money against adversarially random synthetic flow  -  this is expected and educational. Adverse selection dominates: each fill is immediately followed by a random price walk that on average moves against inventory. Key observations:
 
 - **A-S quotes tighter spreads early** (large τ → small δ*), producing more fills (17K) and more adverse selection exposure.
 - **A-S has the smallest max drawdown** because the reservation-price mechanism continuously skews quotes to flatten inventory.
@@ -181,32 +181,32 @@ python3 -m nbconvert --to notebook --execute analysis.ipynb \
 
 ```
 engine/
-  lob.hpp           — LOB header (all public API)
-  lob.cpp           — matching engine implementation
-  bindings.cpp      — pybind11 Python bindings
-  benchmark.cpp     — 1M order throughput test
-  __init__.py       — adds build/ to sys.path for Python imports
+  lob.hpp            -  LOB header (all public API)
+  lob.cpp            -  matching engine implementation
+  bindings.cpp       -  pybind11 Python bindings
+  benchmark.cpp      -  1M order throughput test
+  __init__.py        -  adds build/ to sys.path for Python imports
 
 sim/
-  backtester.py     — event-driven backtester with re-entrancy guard
-  metrics.py        — PnL, Sharpe, drawdown, fill ratio, adverse selection
+  backtester.py      -  event-driven backtester with re-entrancy guard
+  metrics.py         -  PnL, Sharpe, drawdown, fill ratio, adverse selection
   __init__.py
 
 strategies/
-  naive.py                — symmetric ±k quoter
-  avellaneda_stoikov.py   — A-S optimal spread (heavily documented)
-  glosten_milgrom.py      — flow-imbalance-aware spread widening
+  naive.py                 -  symmetric ±k quoter
+  avellaneda_stoikov.py    -  A-S optimal spread (heavily documented)
+  glosten_milgrom.py       -  flow-imbalance-aware spread widening
   __init__.py
 
 data/
-  synthetic.py      — Poisson + Hawkes order flow generators, LOBSTER stub
+  synthetic.py       -  Poisson + Hawkes order flow generators, LOBSTER stub
 
 notebooks/
-  analysis.ipynb    — full comparison: metrics table + 9 plots
+  analysis.ipynb     -  full comparison: metrics table + 9 plots
 
 tests/
-  test_engine.cpp   — 18 GoogleTest cases (matching, IOC, post-only, cancel, modify)
-  test_python.py    — 30 pytest cases (generator, backtester, strategies, metrics)
+  test_engine.cpp    -  18 GoogleTest cases (matching, IOC, post-only, cancel, modify)
+  test_python.py     -  30 pytest cases (generator, backtester, strategies, metrics)
 ```
 
 ---

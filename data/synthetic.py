@@ -170,8 +170,8 @@ def load_lobster(message_file: str, orderbook_file: str) -> list[RawOrder]:
     data format.
 
     LOBSTER files come in pairs:
-      *_message_*.csv  — one row per event (type, id, size, price, dir, ts)
-      *_orderbook_*.csv — snapshot of top N levels after each event
+      *_message_*.csv   -  one row per event (type, id, size, price, dir, ts)
+      *_orderbook_*.csv  -  snapshot of top N levels after each event
 
     Returns RawOrder list from the message file.  Only types 1 (new limit),
     4 (cancel), 5 (delete), and 6 (market/hidden) are used here.
